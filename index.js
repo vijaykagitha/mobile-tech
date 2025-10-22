@@ -155,7 +155,7 @@ function updateHeroBackground() {
   
   const heroSection = document.querySelector('.hero');
   if (heroSection && courseData.images.hero) {
-    heroSection.style.backgroundImage = `linear-gradient(135deg, rgba(0, 102, 255, 0.9), rgba(0, 212, 255, 0.8)), url('${courseData.images.hero}')`;
+    heroSection.style.backgroundImage = `linear-gradient(135deg, url('${courseData.images.hero}')`;
   }
 }
 
