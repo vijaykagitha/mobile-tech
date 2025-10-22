@@ -14,7 +14,12 @@
   <header>
     <div class="container">
       <h1><img src="https://live.staticflickr.com/65535/54871643566_ba05bea80b_n.jpg" alt="DeviceXpert Academy Logo" class="logo"> DeviceXpert Academy</h1>
-      <nav>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle mobile menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
         <a href="#home" class="active">Home</a>
         <a href="#about">About</a>
         <a href="#course">Course</a>
@@ -27,13 +32,31 @@
 
   <!-- HERO SECTION -->
   <section id="home" class="hero" data-aos="fade-in">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h2 data-aos="fade-up" data-aos-delay="200">Master Mobile Repairing from Basics to iPhone-level Expertise</h2>
-      <p data-aos="fade-up" data-aos-delay="400">Join DeviceXpert Academy – India's leading mobile repairing institute</p>
-      <a href="#contact" class="btn btn-primary" data-aos="fade-up" data-aos-delay="600">
-        <i class="bi bi-person-plus"></i> Enroll Now
-      </a>
+    <div class="hero-container">
+      <div class="hero-content">
+        <h2 data-aos="fade-up" data-aos-delay="200">Master Mobile Repairing from Basics to iPhone-level Expertise</h2>
+        <p data-aos="fade-up" data-aos-delay="400">Join DeviceXpert Academy – India's leading mobile repairing institute</p>
+        <a href="#contact" class="btn btn-primary" data-aos="fade-up" data-aos-delay="600">
+          <i class="bi bi-person-plus"></i> Enroll Now
+        </a>
+      </div>
+      <div class="hero-sidebar" data-aos="fade-left" data-aos-delay="400">
+        <div class="next-batch-card">
+          <div class="batch-header">
+            <i class="bi bi-calendar-event"></i>
+            <h3>Next Batch</h3>
+          </div>
+          <div class="batch-date">
+            <span class="date-day">17</span>
+            <span class="date-month">November</span>
+            <span class="date-year">2025</span>
+          </div>
+          <p class="batch-description">Limited seats available for our comprehensive mobile repairing course</p>
+          <a href="#contact" class="btn btn-secondary">
+            <i class="bi bi-info-circle"></i> More Details
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -350,6 +373,19 @@
       </div>
     
   </footer>
+
+  <!-- WhatsApp Widget -->
+  <div class="whatsapp-widget" id="whatsapp-widget">
+    <a href="https://wa.me/918341453133" target="_blank" rel="noopener noreferrer" class="whatsapp-link">
+      <div class="whatsapp-icon">
+        <i class="bi bi-whatsapp"></i>
+      </div>
+      <div class="whatsapp-tooltip">
+        <span>Chat with us on WhatsApp</span>
+        <div class="tooltip-arrow"></div>
+      </div>
+    </a>
+  </div>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

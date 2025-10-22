@@ -60,6 +60,7 @@ async function initializeApp() {
     // Initialize additional features
     initializeCardHoverEffects();
     initializeScrollProgress();
+    initializeWhatsAppWidget();
     
     // Start typing effect after a delay
     setTimeout(initializeTypingEffect, 2000);
@@ -214,6 +215,11 @@ function initializeScrollEffects() {
 function initializeNavigation() {
   const navLinks = document.querySelectorAll('nav a');
   const sections = document.querySelectorAll('section');
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  
+  // Initialize mobile menu toggle
+  initializeMobileMenu();
   
   // Smooth scrolling for navigation links
   navLinks.forEach(link => {
@@ -266,6 +272,97 @@ function initializeNavigation() {
       });
     }, 50);
   });
+}
+
+// Initialize mobile menu
+function initializeMobileMenu() {
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  const navLinks = document.querySelectorAll('.nav-menu a');
+  
+  if (!mobileToggle || !navMenu) return;
+  
+  // Toggle mobile menu
+  mobileToggle.addEventListener('click', function() {
+    mobileToggle.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    
+    // Add/remove overlay
+    toggleNavOverlay();
+    
+    // Prevent body scroll when menu is open
+    document.body.classList.toggle('menu-open');
+  });
+  
+  // Close menu when clicking on nav links
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      closeMobileMenu();
+    });
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+      closeMobileMenu();
+    }
+  });
+  
+  // Close menu on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeMobileMenu();
+    }
+  });
+  
+  // Close menu on window resize (if resized to desktop)
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      closeMobileMenu();
+    }
+  });
+}
+
+// Close mobile menu
+function closeMobileMenu() {
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  
+  if (mobileToggle && navMenu) {
+    mobileToggle.classList.remove('active');
+    navMenu.classList.remove('active');
+    document.body.classList.remove('menu-open');
+    removeNavOverlay();
+  }
+}
+
+// Toggle navigation overlay
+function toggleNavOverlay() {
+  let overlay = document.querySelector('.nav-overlay');
+  
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'nav-overlay';
+    document.body.appendChild(overlay);
+    
+    // Close menu when clicking overlay
+    overlay.addEventListener('click', closeMobileMenu);
+  }
+  
+  overlay.classList.toggle('active');
+}
+
+// Remove navigation overlay
+function removeNavOverlay() {
+  const overlay = document.querySelector('.nav-overlay');
+  if (overlay) {
+    overlay.classList.remove('active');
+    setTimeout(() => {
+      if (overlay && !overlay.classList.contains('active')) {
+        overlay.remove();
+      }
+    }, 300);
+  }
 }
 
 // Initialize contact form
@@ -654,6 +751,41 @@ function updateSlideshow() {
   });
 }
 
+// Initialize WhatsApp Widget
+function initializeWhatsAppWidget() {
+  const whatsappWidget = document.getElementById('whatsapp-widget');
+  const whatsappLink = document.querySelector('.whatsapp-link');
+  
+  if (!whatsappWidget || !whatsappLink) return;
+  
+  // Add click tracking
+  whatsappLink.addEventListener('click', function(e) {
+    // Track the click (you can add analytics here)
+    console.log('WhatsApp widget clicked');
+    
+    // Add a small delay to show the click effect
+    this.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      this.style.transform = 'scale(1)';
+    }, 150);
+  });
+  
+  // Keep widget always visible - remove scroll hiding behavior
+  // Widget will remain visible throughout the entire page
+  
+  // Add entrance animation and ensure widget stays visible
+  setTimeout(() => {
+    whatsappWidget.style.transform = 'translateY(0)';
+    whatsappWidget.style.opacity = '1';
+  }, 1000);
+  
+  // Ensure widget remains visible at all times
+  whatsappWidget.style.position = 'fixed';
+  whatsappWidget.style.bottom = '20px';
+  whatsappWidget.style.right = '20px';
+  whatsappWidget.style.zIndex = '1000';
+}
+
 // Export functions for testing
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
@@ -663,6 +795,7 @@ if (typeof module !== 'undefined' && module.exports) {
     showSuccess,
     showError,
     changeSlide,
-    goToSlide
+    goToSlide,
+    initializeWhatsAppWidget
   };
 }
