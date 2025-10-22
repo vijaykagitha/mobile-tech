@@ -155,7 +155,7 @@ function updateHeroBackground() {
   
   const heroSection = document.querySelector('.hero');
   if (heroSection && courseData.images.hero) {
-    heroSection.style.backgroundImage = `linear-gradient(135deg, url('${courseData.images.hero}')`;
+    heroSection.style.backgroundImage = ` url('${courseData.images.hero}`;
   }
 }
 
@@ -164,7 +164,7 @@ function updateCareerBackground() {
   if (!courseData || !courseData.images) return;
   
   if (elements.careerBg && courseData.images.career) {
-    elements.careerBg.style.backgroundImage = `linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 73, 94, 0.8)), url('${courseData.images.career}')`;
+    elements.careerBg.style.backgroundImage = `url('${courseData.images.career}`;
   }
 }
 
