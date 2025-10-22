@@ -155,7 +155,10 @@ function updateHeroBackground() {
   
   const heroSection = document.querySelector('.hero');
   if (heroSection && courseData.images.hero) {
-    heroSection.style.backgroundImage = ` url('${courseData.images.hero}`;
+    heroSection.style.backgroundImage = `url('${courseData.images.hero}')`;
+    heroSection.style.backgroundRepeat = 'no-repeat';
+    heroSection.style.backgroundSize = 'cover';
+    heroSection.style.backgroundPosition = 'center center';
   }
 }
 
@@ -164,7 +167,10 @@ function updateCareerBackground() {
   if (!courseData || !courseData.images) return;
   
   if (elements.careerBg && courseData.images.career) {
-    elements.careerBg.style.backgroundImage = `url('${courseData.images.career}`;
+    elements.careerBg.style.backgroundImage = `url('${courseData.images.career}')`;
+    elements.careerBg.style.backgroundRepeat = 'no-repeat';
+    elements.careerBg.style.backgroundSize = 'cover';
+    elements.careerBg.style.backgroundPosition = 'center center';
   }
 }
 
