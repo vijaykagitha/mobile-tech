@@ -1,0 +1,33 @@
+{
+  "courseName": "Mobile Repairing Master Course",
+  "price": 25000,
+  "currency": "INR",
+  "includes": "Includes full repairing toolkit",
+  "duration": "1 Month",
+  "highlights": [
+    "Learn repairing from small mobiles to advanced iPhones and Android devices",
+    "Hands-on training with real devices",
+    "100% practical sessions",
+    "Industry expert instructors",
+    "Free tool kit with the course",
+    "Lifetime technical support"
+  ],
+  "careerTraining": {
+    "title": "Career & Business Training",
+    "goal": "Prepare students to start earning immediately after completing the course.",
+    "topics": [
+      "How to start your own repair shop",
+      "Estimating costs, sourcing spare parts, and dealing with suppliers",
+      "Handling customers professionally",
+      "Digital marketing for repair business",
+      "Creating a YouTube/Instagram repair brand",
+      "Certification after course completion"
+    ]
+  },
+  "images": {
+    "hero": "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7",
+    "classroom": "https://images.unsplash.com/photo-1581090700227-1e37b190418e",
+    "career": "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+    "repair": "https://images.unsplash.com/photo-1610379119634-4661b2e59f99"
+  }
+}
