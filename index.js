@@ -491,7 +491,7 @@ function showFallbackContent() {
     elements.courseDuration.textContent = '1 Month';
   }
   if (elements.coursePrice) {
-    elements.coursePrice.textContent = '25,000';
+    elements.coursePrice.textContent = '20,000';
   }
   if (elements.courseCurrency) {
     elements.courseCurrency.textContent = 'INR';
